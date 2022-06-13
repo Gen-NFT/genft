@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo_white_background.jpg">
+    <link rel="stylesheet" href="./style/login_and_sign_up.css">
+    <title>GeNFT</title>
+</head>
+
+<body>
+    <main>
+        <div id="header">
+            <img id="logo" src="assets/logo.png" alt="logo"/>
+            <h1 id="title">GeNFT</h1>
+        </div>
+        <div class="wrapper" id="login-form-wrapper">
+            <h2 class="subtitle">Login</h2>
+            <form class="form" id="login-form" action="./index.html" method="POST">
+                <div class="user-info" id="login-user-info">
+                    <div class="input-control">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" class="input-info">
+                    </div>
+                    <div class="input-control">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="pass" class="input-info">
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <button type="submit" name="submitBtn" alt="Submit" class="action-elements" id="login-button">Log In</button>
+                    <div class="alternative">
+                        <span class="question">Don't have an account?</span>
+                        <a href="./sign_up.html" class="action-elements" id="to-sign-up-link">Sign up</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
