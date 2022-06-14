@@ -79,6 +79,7 @@ main {
     margin-bottom: 5px;
     padding-bottom: 10px;
     width: 100%;
+    position: relative;
 }
 
 .input-control label {
@@ -94,6 +95,7 @@ main {
     font-size: 14px;
     width: 100%;
     padding: 5px;
+    margin-bottom:3px;
     background-color: transparent;
     border: none;
     border-bottom:2px solid #1a1aeb;
@@ -163,4 +165,21 @@ main {
 
 a {
     text-decoration: none;
+}
+
+.input-control.success small {
+    color: #700a97;
+    visibility: visible;
+}
+
+.input-control.error small {
+    color: #fe5803;
+    visibility: visible;
+}
+
+.input-control small {
+    width: 400px;
+    visibility: hidden;
+    position: absolute;
+    top: 55px;
 }
