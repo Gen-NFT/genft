@@ -8,6 +8,7 @@
     <link rel="icon" href="./assets/logo_white_background.jpg">
     <link rel="stylesheet" href="./style/login_and_sign_up.css">
     <title>GeNFT</title>
+    <script src="./scripts/login.js" type="module"></script>
 </head>
 
 <body>
@@ -23,10 +24,12 @@
                     <div class="input-control">
                         <label for="login-email">Email</label>
                         <input type="email" id="login-email" name="email" class="input-info">
+                        <small class="error-message"></small>
                     </div>
                     <div class="input-control">
                         <label for="login-password">Password</label>
                         <input type="password" id="login-password" name="pass" class="input-info">
+                        <small class="error-message"></small>
                     </div>
                 </div>
                 <div class="user-actions">
@@ -40,5 +43,4 @@
         </div>
     </main>
 </body>
-<script src="./scripts/login.js" type="module"></script>
 </html>
