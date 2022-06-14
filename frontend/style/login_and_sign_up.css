@@ -160,3 +160,7 @@ main {
     text-decoration: underline;
     margin-left: 0.5rem;
 }
+
+a {
+    text-decoration: none;
+}
