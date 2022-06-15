@@ -30,6 +30,19 @@ body {
     width: auto;
 }
 
+#logo-text {
+    font-size: 42px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#logo-text:hover {
+    transition: 0.25s;
+    color: #1a1aeb;
+    box-shadow: #1a1aeb 2px 2px, #1111c8 4px 4px, #0e0ea0 6px 6px, #0a0a78 10px 10px ,#070750 14px 14px, #030328 18px 18px;
+}
+
 main {
     display: flex;
     flex-direction: column;

@@ -22,13 +22,13 @@
         <nav class="navbar-divs">
             <ul class="nav-list">
                 <li class="nav-list-items list-items-hover-orange"><a href="./index_logged.html">Home</a></li>
-                <li class="nav-list-items list-items-hover-orange"><a href="./generator.html">Generator</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./generator_logged.html">Generator</a></li>
                 <li class="nav-list-items list-items-hover-orange"><a href="./contacts_logged.html">Contacts</a></li>
             </ul>
         </nav>
         <div class="navbar-divs" id="nav-login">
             <ul class="nav-list">
-                <li class="nav-list-items list-items-hover-purple"><a id="profile-link" href="./profile.html"></a></li>
+                <li class="nav-list-items list-items-hover-purple"><a id="profile-link" href="./profile_logged.html"></a></li>
                 <li class="nav-list-items list-items-hover-purple"><button id="logout-btn" onclick="logout()">Exit</button></li>
             </ul>
         </div>
@@ -131,25 +131,30 @@
                     <h2 class="section-title">Generate your NFT</h2>
                 </header>
                 <div id="generator-div">
-                    <p><a id="sign-up-link" href="./sign_up.html">Sign up</a> and get your personal NFTs now!</p>
-                    <button id="generate-btn">Generate</button>
+                    <button id="generate-btn" onclick="redirectToGenerator()">Generate</button>
                 </div>
             </section>
         </div>
     </main>
     <footer>
+        <div id="footer-brand">
+            <img src="./assets/logo.png" id="footer-logo" />
+            <span id="footer-logo-text">GeNFT</span>
+        </div>
         <ul>
             <li><a href="./contacts_logged.html">Contacts</a></li>
-            <li><a href="./generator.html">Generator</a></li>
-            <li><a href="./profile.html">Profile</a></li>
+            <li><a href="./generator_logged.html">Generator</a></li>
+            <li><a href="./profile_logged.html">Profile</a></li>
             <li><a href="./login.html">Login</a></li>
-            <li><a href="./sign_up.html">Sign up</a></li>
-        </ul>
+            <li><a href="./sign_up.html">Sign up</a></li>        </ul>
     </footer>
     <script>
         function logout() {
             sessionStorage.removeItem("current-user")
             location.href = "./login.html";
+        }
+        function redirectToGenerator() {
+            location.href = "./generator_logged.html";
         }
     </script>
 </body>

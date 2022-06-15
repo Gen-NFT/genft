@@ -48,6 +48,10 @@ body {
 
 .navbar-divs {
     height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #nav-logo {
@@ -66,10 +70,14 @@ body {
 #logo-img-link {
     height: 100%;
     width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #logo-img {
-    height: 100%;
+    height: 10vh;
     width: auto;
 }
 
@@ -365,7 +373,7 @@ main {
     height: 20vwh;
 }
 
-#generate-btn {
+/* #generate-btn {
     background-color: black;
     border: 2px solid white;
     border-radius: 50px;
@@ -384,6 +392,35 @@ main {
 #generate-btn:hover {
     transition: 0.25s;
     background: rgb(0,0,0);
+} */
+
+#generate-btn {
+    display: block;
+    font-size: 1rem;
+    height: 50px;
+    width: 10%;
+    cursor: pointer;
+    background:
+    linear-gradient(127deg, #1a1aeb, rgba(0,255,0,0) 40.71%),
+    linear-gradient(136deg, #fe5803, rgba(0,0,255,0) 30.71%),
+    linear-gradient(217deg, #700a97, rgba(255,0,0,0) 40.71%),
+    linear-gradient(336deg, #fe5803, rgba(0,0,255,0) 30.71%);
+    font-weight: bolder;
+    border-radius: 50px;
+    border: none;
+    margin: 1rem;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #1a1aeb;
+    border-radius: 50px;
+}
+
+#generate-btn:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px #700a97;
 }
 
 #sign-up-link {
@@ -391,27 +428,41 @@ main {
 }
 
 footer {
-    height: auto;
+    height: 20vh;
     width: 100%;
     border-top: 5px solid;
     border-bottom: 5px solid;
     border-image: linear-gradient(to right, #1a1aeb 10%, #fe5803 40% 60%, #700a97 80%) 5;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 2rem;
     margin-top: 1rem;
 }
 
 footer ul {
-    width: 80%;
+    width: 50%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
     margin:1rem;
+}
+
+#footer-logo {
+    width: auto;
+    height: 15vh;
+}
+
+#footer-brand {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: auto;
 }
 
 #contacts-section {

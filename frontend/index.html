@@ -121,12 +121,16 @@
                 </header>
                 <div id="generator-div">
                     <p><a id="sign-up-link" href="./sign_up.html">Sign up</a> and get your personal NFTs now!</p>
-                    <button id="generate-btn">Generate</button>
+                    <button id="generate-btn" onclick="redirectToLogin()">Generate</button>
                 </div>
             </section>
         </div>
     </main>
     <footer>
+        <div id="footer-brand">
+            <img src="./assets/logo.png" id="footer-logo" />
+            <span id="footer-logo-text">GeNFT</span>
+        </div>
         <ul>
             <li><a href="./contacts.html">Contacts</a></li>
             <li><a href="./login.html">Generator</a></li>
@@ -134,5 +138,10 @@
             <li><a href="./sign_up.html">Sign up</a></li>
         </ul>
     </footer>
+    <script>
+        function redirectToLogin() {
+            location.href = "./login.html";
+        }
+    </script>
 </body>
 </html>
