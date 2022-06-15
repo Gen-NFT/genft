@@ -286,6 +286,7 @@ window.addEventListener("load", (event) => {
     signUpEmailElement.value = "";
     signUpPasswordElement.value = "";
     signUpConfPassElement.value = "";
+    sessionStorage.clear()
 });
 
 // Loop through inputs to check for errors

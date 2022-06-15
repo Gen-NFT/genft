@@ -202,3 +202,7 @@ loginButtonElement.addEventListener("click", event => {
         }
     });
 });
+
+window.addEventListener("load", (event) => {
+    sessionStorage.clear()
+});
