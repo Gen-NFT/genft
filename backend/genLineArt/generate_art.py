@@ -16,7 +16,7 @@ def color_interpolate(start_color, end_color, factor: float):
     # Find the color that is exactly factor (0.0 - 1.0) between the two colors.
     new_color_rgb = []
     for i in range(3):
-        new_color_value = factor * end_color[i] + (1 - factor) * start_color[i]
+        new_color_value = start_color[i] + (end_color[i] - start_color[i]) * factor
         new_color_rgb.append(int(new_color_value))
 
     return tuple(new_color_rgb)
@@ -83,5 +83,3 @@ def generate_art():
         image = ImageChops.add(image, overlay_image)
 
     image.save("test.png")
-
-generate_art()
