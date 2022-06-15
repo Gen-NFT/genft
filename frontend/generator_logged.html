@@ -10,12 +10,14 @@
     <link rel="stylesheet" href="./style/styles.css">
     <title>GeNFT</title>
     <script src="./scripts/logged.js" type="module"></script>
+    <script src="./scripts/generator.js" type="module"></script>
 </head>
 
 <body>
     <div id="navbar">
         <div class="navbar-divs" id="nav-logo">
-            <a href="./index_logged.html" id="logo-img-link"><img id="logo-img" src="./assets/logo.png" alt="logo" /></a>
+            <a href="./index_logged.html" id="logo-img-link"><img id="logo-img" src="./assets/logo.png"
+                    alt="logo" /></a>
             <a href="./index_logged.html" id="logo-text">GeNFT</a>
         </div>
         <nav class="navbar-divs">
@@ -27,16 +29,65 @@
         </nav>
         <div class="navbar-divs" id="nav-login">
             <ul class="nav-list">
-                <li class="nav-list-items list-items-hover-purple"><a id="profile-link" href="./profile_logged.html"></a></li>
+                <li class="nav-list-items list-items-hover-purple"><a id="profile-link"
+                        href="./profile_logged.html"></a></li>
                 <li class="nav-list-items list-items-hover-purple"><a href="./login.html">Exit</a></li>
             </ul>
         </div>
     </div>
     <main>
-        <section>
+        <section id="generator-section">
             <header>
-                <h1></h1>
+                <h1 id="generator-title">Time to craft a digital masterpiece</h1>
             </header>
+            <div id="form-wrapper">
+                <div id="user-info">
+                    <fieldset id="user-info-form">
+                        <legend>Form</legend>
+                        <div class="input-control">
+                            <label for="user-info-name">Name</label>
+                            <input type="name" id="user-info-name" name="name" class="input-info" required>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-lastname">Lastname</label>
+                            <input type="lastname" id="user-info-lastname" name="lastname" class="input-info" required>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-age">Age</label>
+                            <input type="range" id="user-info-age" name="volume" value="0" min="0" max="100" step="1" class="input-info" oninput="this.nextElementSibling.nextElementSibling.value = this.value" required>
+                            <span>value:</span>
+                            <output>0</output>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-gender" id="gender-label">Gender</label>
+                            <select name="Gender" id="user-info-gender" class="input-info" required>
+                                <option>-</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-eye-colour" id="eye-colour-label">Eye color</label>
+                            <select name="colour" id="user-info-eye-colour" class="input-info" required>
+                                <option>-</option>
+                                <option>Brown</option>
+                                <option>Blue</option>
+                                <option>Green</option>
+                                <option>Gray</option>
+                                <option>Amber</option>
+                                <option>Hazel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <div id="generation-wrapper">
+                        <img id="generated-img" src="./assets/test_image.png" alt="generated_image"/>
+                        <button class="generation-actions" id="generate-img-btn">Generate</button>
+                        <button class="generation-actions" id="generate-img-btn">Download</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -49,7 +100,8 @@
             <li><a href="./generator_logged.html">Generator</a></li>
             <li><a href="./profile_logged.html">Profile</a></li>
             <li><a href="./login.html">Login</a></li>
-            <li><a href="./sign_up.html">Sign up</a></li>        </ul>
+            <li><a href="./sign_up.html">Sign up</a></li>
+        </ul>
     </footer>
     <script>
         function logout() {
@@ -58,4 +110,5 @@
         }
     </script>
 </body>
+
 </html>

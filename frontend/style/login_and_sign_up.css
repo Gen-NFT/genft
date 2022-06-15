@@ -176,6 +176,12 @@ main {
     margin-left: 0.5rem;
 }
 
+#to-login-link:hover,
+#to-sign-up-link:hover {
+    transition: 0.25s;
+    color: #700a97;
+}
+
 a {
     text-decoration: none;
 }

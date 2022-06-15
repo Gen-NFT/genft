@@ -87,7 +87,7 @@ body {
 } */
 
 #logo-text {
-    font-size: 42px;
+    font-size: 38px;
     letter-spacing: 4px;
     text-decoration: none;
     cursor: pointer;
@@ -197,6 +197,7 @@ main {
     justify-content: center;
     height: 25%;
     width: 30%;
+    font-weight: bold;
 }
 
 .main-title-word {
@@ -204,12 +205,14 @@ main {
     flex-direction: column;
     letter-spacing: 5px;
     background-color: transparent;
+    padding: 0.25rem;
     margin: 0.25rem;
 }
 
 #main-title-word-1 {
     z-index: 1;
     justify-content: flex-start;
+    padding: 0.5rem;
     background: linear-gradient(137deg, #1a1aeb 0%, rgba(0,0,0,1) 30%);
 }
 
@@ -334,11 +337,13 @@ main {
 
 .section-title {
     font-size: 2rem;
+    font-weight: bold;
 }
 
 .how-it-works-titles {
     font-size: 1.5rem;
     margin: 1rem;
+    font-weight: bold;
 }
 
 .how-it-works-p {
@@ -427,6 +432,16 @@ main {
     color: #fe5803;
 }
 
+#sign-up-link:hover {
+    transition: 0.25s;
+    color: #700A97;
+}
+
+footer > ul > li > a:hover {
+    transition: 0.25s;
+    color: #fe5803;
+}
+
 footer {
     height: 20vh;
     width: 100%;
@@ -485,4 +500,175 @@ footer ul {
 
 .contancts-list li {
     padding: 0.5rem;
+}
+
+.contancts-list li > a:hover {
+    transition: 0.25s;
+    color: #fe5803;
+}
+
+#generator-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 90vh;
+    height: auto;
+    background:
+    linear-gradient(127deg, #1a1aeb, rgba(0,255,0,0) 30.71%),
+    linear-gradient(217deg, #700a97, rgba(255,0,0,0) 30.71%),
+    linear-gradient(336deg, #fe5803, rgba(0,0,255,0) 20.71%);
+}
+
+#form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#user-info-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    border: 2px solid #1111c8;
+    border-radius: 5px;
+    background: linear-gradient(63deg, #700a97 0%, rgba(0,0,0,1) 20%);
+    padding: 1rem 1rem 1.5rem 1rem;
+}
+
+#user-info-form > * {
+    margin: 0.5rem;
+    padding: 0.25rem;
+}
+
+.input-control {
+    width: 80%;
+}
+
+.input-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 2px;
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom:3px;
+    background-color: transparent;
+    border: none;
+    border-bottom:2px solid #1a1aeb;
+    border-radius: 1px;
+    font-weight: bold;
+    margin: 0rem 0rem 1rem 0rem;
+}
+
+.input-control input:focus {
+    outline:none;
+    border-bottom:2px solid #700a97;
+    transition: 0.25s;
+}
+
+input[type="range"] {
+    width: 100%;
+    appearance: none;
+    border: 2px solid #1111c8;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+input[type="range"]:focus {
+    transition: 0.25s;
+    border: 2px solid #700A97;
+}
+
+select {
+    background-color: transparent;
+    width: 100%;
+    padding: 5px;
+    border:2px solid #1a1aeb;
+    border-radius: 5px;
+}
+
+select:focus {
+    outline: none;
+    transition: 0.25s;
+    border: 2px solid #700A97;
+}
+
+#gender-label {
+    margin-bottom: 5px;
+
+}
+
+output {
+    display: inline;
+}
+
+#generation-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    width: 30%;
+    min-height: 55vh;
+}
+
+.generation-actions {
+    display: block;
+    font-size: 1rem;
+    height: 50px;
+    width: 50%;
+    cursor: pointer;
+    background:
+    linear-gradient(127deg, #1a1aeb, rgba(0,255,0,0) 40.71%),
+    linear-gradient(136deg, #fe5803, rgba(0,0,255,0) 30.71%),
+    linear-gradient(217deg, #700a97, rgba(255,0,0,0) 40.71%),
+    linear-gradient(336deg, #fe5803, rgba(0,0,255,0) 30.71%);
+    font-weight: bolder;
+    border-radius: 50px;
+    border: none;
+    margin: 0.5rem;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #1a1aeb;
+    border-radius: 50px;
+}
+
+.generation-actions:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px #700a97;
+}
+
+#generated-img {
+    min-height: 70%;
+    width: 70%;
+}
+
+#generator-title {
+    font-size: 2rem;
+    margin: 1rem;
+    font-weight: bold;
 }
