@@ -9,8 +9,13 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract GeNFT is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
-    uint public nftPrice = 1.5 ether;
+    uint constant nftPrice = 0.05 ether;
     Counters.Counter private _tokenIdCounter;
+
+    function getPrice() public pure returns (uint) {
+        return nftPrice;
+    }
+
 
     constructor() ERC721("GeNFT", "GNFT") {}
 
@@ -55,7 +60,9 @@ contract GeNFT is ERC721, ERC721URIStorage, Ownable {
         string memory metadataURI
     ) public payable returns (uint256) {
         require(existingURIs[metadataURI] != 1, 'NFT already minted!');
-        require (msg.value >= 0.05 ether, 'Need to pay up! Minimum price is 0.05eth');
+
+        require (msg.value >= nftPrice, 'Need to pay up! Minimum price is 0.05eth');
+
 
         uint256 newItemId = _tokenIdCounter.current();
         _tokenIdCounter.increment();

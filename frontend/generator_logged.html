@@ -11,6 +11,7 @@
     <title>GeNFT</title>
     <script src="./scripts/logged.js" type="module"></script>
     <script src="./scripts/generator.js" type="module"></script>
+    <script src="./scripts/mint-nft.js" type="module"></script>
 </head>
 
 <body>
@@ -85,8 +86,10 @@
                         <div id="generated-img-wrapper">
                             <img id="generated-img" src="./assets/question_image.png" alt="generated_image"/>
                         </div>
+                        <button class="generation-actions" id="generate-img-btn" onclick="connect()">Connect</button>
                         <button class="generation-actions" id="generate-img-btn" onclick="parseData()">Generate</button>
-                        <button class="generation-actions" id="generate-img-btn">Download</button>
+
+                        <!-- <button class="generation-actions" id="generate-img-btn">Download</button> -->
                     </div>
                 </div>
             </div>
@@ -159,12 +162,6 @@
 
                 // DOM elements
 
-
-        // // Default onload page state
-        // window.addEventListener("load", (event) => {
-        //     loadImageSamples()
-        // });
-
         function parseData() {
             let firstName = document.getElementById('user-info-name').value.trim();
             let lastName = document.getElementById('user-info-lastname').value.trim();
@@ -179,28 +176,20 @@
             
             let info = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
             
-            postData('http://localhost:8080',info)
-                .then(data => {
-                    console.log(data);
-                    debugger; // JSON data parsed by `data.json()` call
-                });
+            window.walletState.mintToken('QmUcbDAjNSFjTkNSbcHAV1Wd5jr72d6Da2DmLf4rG7kB6Q')
+            window.walletState.setImgUri(1, 'generated-img')   
+
+            // postData('http://localhost:8080',info)
+            //     .then(data => {
+            //         console.log(data);
+            //         debugger; // JSON data parsed by `data.json()` call
+            //     });
+
             // location.href = "./profile_logged.html";
-            // const process = require("process");
-            // const fs = require('fs');
-            // const pinataSDK = require('@pinata/sdk');
-            // const PINATA_API_KEY = 'c36fcf4d7768219ccc6f';
-            // const PINATA_SECRET_API_KEY = 'edb9148be3a816d20382d547b62e08f14c389466bf06f628da1fef3f17f35777';
-            // const pinata = pinataSDK(PINATA_API_KEY, PINATA_SECRET_API_KEY);
+        }
 
-            // var imgPath = process.argv[2]
-            // const readableStreamForFile = fs.createReadStream("../test.jpeg");
-            // const options = {};
-
-            // pinata.pinFileToIPFS(readableStreamForFile, options).then((result) => {
-            //     console.log(result["IpfsHash"])
-            // }).catch((err) => {
-            //     console.log(err)
-            // });
+        function connect(){
+            window.walletState.connectWallet()
         }
 
         

@@ -5,12 +5,14 @@ let
     pip
     pillow
     requests
+
   ]);
 in
 pkgs.mkShell {
   buildInputs = [
     python-with-my-packages
     pkgs.figlet
+    pkgs.nodejs
   ];
   
   shellHook = ''
