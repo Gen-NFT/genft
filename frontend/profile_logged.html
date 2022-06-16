@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Generative art NFT generator">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo_white_background.jpg">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>GeNFT</title>
+    <script src="./scripts/logged.js" type="module"></script>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="navbar-divs" id="nav-logo">
+            <a href="./index_logged.html" id="logo-img-link"><img id="logo-img" src="./assets/logo.png"
+                    alt="logo" /></a>
+            <a href="./index_logged.html" id="logo-text">GeNFT</a>
+        </div>
+        <nav class="navbar-divs">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-orange"><a href="./index_logged.html">Home</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./generator_logged.html">Generator</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./contacts_logged.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-divs" id="nav-login">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-purple"><a id="profile-link"
+                        href="./profile_logged.html"></a></li>
+                <li class="nav-list-items list-items-hover-purple"><a href="./login.html">Exit</a></li>
+            </ul>
+        </div>
+    </div>
+    <main>
+    </main>
+    <footer>
+        <div id="footer-brand">
+            <img src="./assets/logo.png" id="footer-logo" />
+            <span id="footer-logo-text">GeNFT</span>
+        </div>
+        <ul>
+            <li><a href="./contacts_logged.html">Contacts</a></li>
+            <li><a href="./generator_logged.html">Generator</a></li>
+            <li><a href="./profile_logged.html">Profile</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./sign_up.html">Sign up</a></li>
+        </ul>
+    </footer>
+    <script>
+        function logout() {
+            sessionStorage.removeItem("current-user")
+            location.href = "./login.html";
+        }
+    </script>
+</body>
+
+</html>

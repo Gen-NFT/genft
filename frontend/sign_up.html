@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo_white_background.jpg">
+    <link rel="stylesheet" href="./style/login_and_sign_up.css">
+    <title>GeNFT</title>
+    <script src="./scripts/sign_up.js" type="module"></script>
+</head>
+
+<body>
+    <main>
+        <div id="header">
+            <a href="./index.html" id="logo-img-link"><img id="logo" src="./assets/logo.png" alt="logo" /></a>
+            <h1 id="title"><a href="./index.html" id="logo-text">GeNFT</a></h1>
+        </div>
+        <div class="wrapper" id="sign-up-form-wrapper">
+            <h2 class="subtitle">Sign up</h2>
+            <form class="form" id="sign-up-form" action="./index.html" method="POST">
+                <div class="user-info" id="sign-up-user-info">
+                    <div class="input-control">
+                        <label for="sign-up-username">Username</label>
+                        <input type="text" id="sign-up-username" name="username" class="input-info" />
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="input-control">
+                        <label for="sign-up-email">Email</label>
+                        <input type="email" id="sign-up-email" name="email" class="input-info" />
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="input-control">
+                        <label for="sign-up-password">Password</label>
+                        <input type="password" id="sign-up-password" name="pass" class="input-info" />
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="input-control">
+                        <label for="sign-up-conf-pass">Confirm password</label>
+                        <input type="password" id="sign-up-conf-pass" name="conf-pass" class="input-info" />
+                        <small class="error-message"></small>
+                    </div>
+                </div>
+                <div class="user-actions">
+                    <button type="submit" name="submitBtn" alt="Submit" class="action-elements" id="sign-up-button">Sign up</button>
+                    <div class="alternative">
+                        <span class="question">Already a member?</span>
+                        <a href="./login.html" class="action-elements" id="to-login-link">Log In</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

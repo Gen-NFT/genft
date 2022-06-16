@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Generative art NFT generator">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo_white_background.jpg">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>GeNFT</title>
+    <script src="./scripts/logged.js" type="module"></script>
+    <script src="./scripts/index.js" type="module"></script>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="navbar-divs" id="nav-logo">
+            <a href="./index_logged.html" id="logo-img-link"><img id="logo-img" src="./assets/logo.png"
+                    alt="logo" /></a>
+            <a href="./index_logged.html" id="logo-text">GeNFT</a>
+        </div>
+        <nav class="navbar-divs">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-orange"><a href="./index_logged.html">Home</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./generator_logged.html">Generator</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./contacts_logged.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-divs" id="nav-login">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-purple"><a id="profile-link"
+                        href="./profile_logged.html"></a></li>
+                <li class="nav-list-items list-items-hover-purple"><button id="logout-btn"
+                        onclick="logout()">Exit</button></li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <header id="title">
+            <h1 id="main-title"><span class="main-title-word" id="main-title-word-1">Generative</span></br> <span
+                    class="main-title-word" id="main-title-word-2">Art</span></br> <span class="main-title-word"
+                    id="main-title-word-3">NFTs</span></h1>
+            <span>unique linear arts made for you</span>
+        </header>
+        <div id="main-section">
+            <div class="transition-text-div">
+                <span class="transition-text">unleash the future of digital art...</span>
+            </div>
+            <div id="gallery">
+                <div id="gallery-examples">
+                    <span>Discover AI generative art</span>
+                    <div class="row-element-div even">
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                    </div>
+                    <span>Unique digital art, creative machines</span>
+                    <div class="row-element-div odd">
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                    </div>
+                    <span>Each one artwork is created and sold just once</span>
+                    <div class="row-element-div even">
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                        <div class="genft-examples">
+                            <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="transition-text-div">
+                <p class="transition-text">We use Artificial Intelligence to create art that matches your personality
+                </p>
+            </div>
+            <section id="how-it-works">
+                <header>
+                    <h2 class="section-title">How it works</h2>
+                </header>
+                <article id="how-it-works-article">
+                    <div class="how-it-works-article-divs">
+                        <h3 class="how-it-works-titles">Educate</h3>
+                        <p class="how-it-works-p">Minim reprehenderit laborum exercitation velit et. Ea consectetur
+                            nostrud est quis esse velit do et quis aliqua deserunt labore anim. Dolore laboris fugiat
+                            nisi id quis. Fugiat esse esse culpa id duis aute qui veniam est.</p>
+                    </div>
+                    <div class="how-it-works-article-divs">
+                        <h3 class="how-it-works-titles">Analyze</h3>
+                        <p class="how-it-works-p">Aliqua do duis laboris enim non irure fugiat incididunt esse aliquip
+                            nisi. Aute ex non consequat deserunt consectetur adipisicing. Lorem tempor nisi ad cillum
+                            aliqua est sint.</p>
+                    </div>
+                    <div class="how-it-works-article-divs">
+                        <h3 class="how-it-works-titles">Create</h3>
+                        <p class="how-it-works-p">Eu excepteur exercitation cupidatat ut cupidatat aliqua voluptate
+                            laborum nisi fugiat ex dolore. Laborum ullamco officia aliquip eiusmod cupidatat anim id. Et
+                            velit dolor est veniam cillum ipsum quis culpa dolore aute commodo anim.</p>
+                    </div>
+                </article>
+            </section>
+            <div class="transition-small-gallery-div">
+                <div class="row-element-div">
+                    <div class="genft-examples">
+                        <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                    </div>
+                    <div class="genft-examples">
+                        <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                    </div>
+                    <div class="genft-examples">
+                        <img class="image-examples" src="./assets/test_image.png" alt="test_image" />
+                    </div>
+                </div>
+            </div>
+            <section id="generator">
+                <header>
+                    <h2 class="section-title">Generate your NFT</h2>
+                </header>
+                <div id="generator-div">
+                    <button id="generate-btn" onclick="redirectToGenerator()">Get Started</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div id="footer-brand">
+            <img src="./assets/logo.png" id="footer-logo" />
+            <span id="footer-logo-text">GeNFT</span>
+        </div>
+        <ul>
+            <li><a href="./contacts_logged.html">Contacts</a></li>
+            <li><a href="./generator_logged.html">Generator</a></li>
+            <li><a href="./profile_logged.html">Profile</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./sign_up.html">Sign up</a></li>
+        </ul>
+    </footer>
+    <script>
+        function logout() {
+            sessionStorage.removeItem("current-user")
+            location.href = "./login.html";
+        }
+        function redirectToGenerator() {
+            location.href = "./generator_logged.html";
+        }
+    </script>
+</body>
+
+</html>

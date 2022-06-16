@@ -1,0 +1,204 @@
+/* Colours:
+- #700a97 // purple
+- #fe5803 // orange
+- #1a1aeb // blue
+*/
+
+* {
+    color: white;
+
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    /* border: 1px solid white; */
+}
+
+body {
+    background-color: black;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 1rem;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    height: 100px;
+    width: auto;
+}
+
+#logo-text {
+    font-size: 42px;
+    letter-spacing: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#logo-text:hover {
+    transition: 0.25s;
+    color: #1a1aeb;
+    box-shadow: #1a1aeb 2px 2px, #1111c8 4px 4px, #0e0ea0 6px 6px, #0a0a78 10px 10px ,#070750 14px 14px, #030328 18px 18px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 40vw;
+    border-bottom: 5px solid;
+    border-top: 5px solid;
+    border-image: linear-gradient(to right, #1a1aeb 10%, #fe5803 40% 60%, #700a97 80%) 5;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    margin-bottom: 1rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.input-control label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 2px;
+    display: block;
+    font-size: 14px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom:3px;
+    background-color: transparent;
+    border: none;
+    border-bottom:2px solid #1a1aeb;
+    border-radius: 1px;
+    font-weight: bold;
+}
+
+.input-control input:focus {
+    outline:none;
+    border-bottom:2px solid #700a97;
+    transition: 0.25s;
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper button[type="submit"] {
+    display: block;
+    font-size: 1rem;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+    background:
+    linear-gradient(127deg, #1a1aeb, rgba(0,255,0,0) 40.71%),
+    linear-gradient(136deg, #fe5803, rgba(0,0,255,0) 30.71%),
+    linear-gradient(217deg, #700a97, rgba(255,0,0,0) 40.71%),
+    linear-gradient(336deg, #fe5803, rgba(0,0,255,0) 30.71%);
+    font-weight: bolder;
+    border-radius: 50px;
+    border: none;
+    margin: 1rem;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 10px #1a1aeb;
+    border-radius: 50px;
+}
+
+.wrapper button[type="submit"]:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 20px #700a97;
+
+}
+
+.alternative {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#to-login-link,
+#to-sign-up-link {
+    cursor: pointer;
+    color: #fe5803;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    margin-left: 0.5rem;
+}
+
+#to-login-link:hover,
+#to-sign-up-link:hover {
+    transition: 0.25s;
+    color: #700a97;
+}
+
+a {
+    text-decoration: none;
+}
+
+.input-control.success small {
+    color: #700a97;
+    visibility: visible;
+}
+
+.input-control.error small {
+    color: #fe5803;
+    visibility: visible;
+}
+
+.input-control small {
+    width: 400px;
+    visibility: hidden;
+    position: absolute;
+    top: 55px;
+}

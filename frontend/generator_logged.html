@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Generative art NFT generator">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/logo_white_background.jpg">
+    <link rel="stylesheet" href="./style/styles.css">
+    <title>GeNFT</title>
+    <script src="./scripts/logged.js" type="module"></script>
+    <script src="./scripts/generator.js" type="module"></script>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="navbar-divs" id="nav-logo">
+            <a href="./index_logged.html" id="logo-img-link"><img id="logo-img" src="./assets/logo.png"
+                    alt="logo" /></a>
+            <a href="./index_logged.html" id="logo-text">GeNFT</a>
+        </div>
+        <nav class="navbar-divs">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-orange"><a href="./index_logged.html">Home</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./generator_logged.html">Generator</a></li>
+                <li class="nav-list-items list-items-hover-orange"><a href="./contacts_logged.html">Contacts</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-divs" id="nav-login">
+            <ul class="nav-list">
+                <li class="nav-list-items list-items-hover-purple"><a id="profile-link"
+                        href="./profile_logged.html"></a></li>
+                <li class="nav-list-items list-items-hover-purple"><a href="./login.html">Exit</a></li>
+            </ul>
+        </div>
+    </div>
+    <main>
+        <section id="generator-section">
+            <header>
+                <h1 id="generator-title">Time to craft a digital masterpiece</h1>
+            </header>
+            <div id="form-wrapper">
+                <div id="user-info">
+                    <fieldset id="user-info-form">
+                        <legend>Form</legend>
+                        <div class="input-control">
+                            <label for="user-info-name">Name</label>
+                            <input type="name" id="user-info-name" name="name" class="input-info" required>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-lastname">Lastname</label>
+                            <input type="lastname" id="user-info-lastname" name="lastname" class="input-info" required>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-age">Age</label>
+                            <input type="range" id="user-info-age" name="volume" value="0" min="0" max="100" step="1" class="input-info" oninput="this.nextElementSibling.nextElementSibling.value = this.value" required>
+                            <span>value:</span>
+                            <output>0</output>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-gender" id="gender-label">Gender</label>
+                            <select name="Gender" id="user-info-gender" class="input-info" required>
+                                <option>-</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="input-control">
+                            <label for="user-info-eye-colour" id="eye-colour-label">Eye color</label>
+                            <select name="colour" id="user-info-eye-colour" class="input-info" required>
+                                <option>-</option>
+                                <option>Brown</option>
+                                <option>Blue</option>
+                                <option>Green</option>
+                                <option>Gray</option>
+                                <option>Amber</option>
+                                <option>Hazel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <div id="generation-wrapper">
+                        <div id="generated-img-wrapper">
+                            <img id="generated-img" src="./assets/question_image.png" alt="generated_image"/>
+                        </div>
+                        <button class="generation-actions" id="generate-img-btn" onclick="parseData()">Generate</button>
+                        <button class="generation-actions" id="generate-img-btn">Download</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div id="footer-brand">
+            <img src="./assets/logo.png" id="footer-logo" />
+            <span id="footer-logo-text">GeNFT</span>
+        </div>
+        <ul>
+            <li><a href="./contacts_logged.html">Contacts</a></li>
+            <li><a href="./generator_logged.html">Generator</a></li>
+            <li><a href="./profile_logged.html">Profile</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./sign_up.html">Sign up</a></li>
+        </ul>
+    </footer>
+    <script>
+        function logout() {
+            sessionStorage.removeItem("current-user")
+            location.href = "./login.html";
+        }
+        function findEndColor(index){
+            var x = index
+            while(x > 1){
+                x = x/10;
+            }
+            return x;
+        }
+        function findStartColor(eyeColor){
+            switch(eyeColor){
+                case 'Brown':
+                    return 0.750;
+                    break;
+                case 'Blue':
+                    return 0.5;
+                    break;
+                case 'Green':
+                    return 0.3;
+                    break;
+                case 'Gray':
+                    return 0.856;
+                    break;
+                case 'Amber':
+                    return 0.111;
+                    break;
+                case 'Hazel':
+                    return 0.191;
+                    break;
+                case 'Other':
+                    return 0;
+                    break;
+                default:
+                    return 0.666;
+            }
+        }
+        async function postData(url = '', data = {}) {
+        // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+                // DOM elements
+
+
+        // // Default onload page state
+        // window.addEventListener("load", (event) => {
+        //     loadImageSamples()
+        // });
+
+        function parseData() {
+            let firstName = document.getElementById('user-info-name').value.trim();
+            let lastName = document.getElementById('user-info-lastname').value.trim();
+            let age = document.getElementById('user-info-age').value.trim();
+            let eyesColor = document.getElementById('user-info-eye-colour').value.trim();
+
+            let nameSize = firstName.length + lastName.length;
+            let numberOfLines = ((nameSize * age)%10) + 5;
+            let endColor = findEndColor(nameSize * age);
+            let startColor = findStartColor(eyesColor)
+            console.log(`${firstName} ${lastName} ${age} ${eyesColor}`)
+            
+            let datas = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
+            
+            postData('http://localhost:8080',datas)
+                .then(data => {
+                    console.log(data); // JSON data parsed by `data.json()` call
+                });
+
+            // fetch('http://localhost:8080 -H \"Content-Type: application/json\" \ -X POST --data \'{\"foo\":\"bar\"}\'');
+        //     curl localhost:8080/ \
+        //    -H "Content-Type: application/json" \
+        //    -X POST --data '{"numberOfLines":"8", "startColor":"0.5", "endColor":"0.1554"}'
+            location.href = "./profile_logged.html";
+        }
+        
+
+    </script>
+</body>
+
+</html>
