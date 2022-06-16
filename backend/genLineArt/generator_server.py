@@ -3,6 +3,8 @@ from sys import argv
 import json
 from tokenize import Double 
 from generate_art import *
+from pin_to_pinata import *
+
 
 BIND_HOST = 'localhost'
 PORT = 8080
@@ -15,6 +17,10 @@ def produce_art(content):
     endColor = float(contentAsJson["endColor"])
 
     generate_art(numberOfLines, startColor, endColor)
+    CID = pinata_upload("./generatedArts")
+    print(CID)
+# def pin_ti_Pinata(path string):
+
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
@@ -27,9 +33,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers.get('content-length', 0))
         body = self.rfile.read(content_length)
-
-        self.write_response(body)
-        produce_art(body)
+        CID = produce_art(body)
+        
+        responseBody = { "CID" : CID }
+        # self.wfile.write(json.dumps(responseBody))
+        self.write_response(json.dumps(responseBody).encode("utf-8"))
 
     def write_response(self, content):
         self.send_response(200)

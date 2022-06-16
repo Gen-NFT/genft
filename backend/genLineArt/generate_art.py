@@ -84,4 +84,4 @@ def generate_art(numberOfLines, startColor: float, endColor: int):
         overlay_draw.line(line_xy, fill= line_color, width=thickness)
         image = ImageChops.add(image, overlay_image)
 
-    image.save("test.jpeg")
+    image.save("generatedArts/genLineArt.jpeg")
