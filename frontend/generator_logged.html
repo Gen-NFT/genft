@@ -82,8 +82,10 @@
                         </div>
                     </fieldset>
                     <div id="generation-wrapper">
-                        <img id="generated-img" src="./assets/test_image.png" alt="generated_image"/>
-                        <button class="generation-actions" id="generate-img-btn">Generate</button>
+                        <div id="generated-img-wrapper">
+                            <img id="generated-img" src="./assets/question_image.png" alt="generated_image"/>
+                        </div>
+                        <button class="generation-actions" id="generate-img-btn" onclick="parseData()">Generate</button>
                         <button class="generation-actions" id="generate-img-btn">Download</button>
                     </div>
                 </div>
@@ -108,6 +110,88 @@
             sessionStorage.removeItem("current-user")
             location.href = "./login.html";
         }
+        function findEndColor(index){
+            var x = index
+            while(x > 1){
+                x = x/10;
+            }
+            return x;
+        }
+        function findStartColor(eyeColor){
+            switch(eyeColor){
+                case 'Brown':
+                    return 0.750;
+                    break;
+                case 'Blue':
+                    return 0.5;
+                    break;
+                case 'Green':
+                    return 0.3;
+                    break;
+                case 'Gray':
+                    return 0.856;
+                    break;
+                case 'Amber':
+                    return 0.111;
+                    break;
+                case 'Hazel':
+                    return 0.191;
+                    break;
+                case 'Other':
+                    return 0;
+                    break;
+                default:
+                    return 0.666;
+            }
+        }
+        async function postData(url = '', data = {}) {
+        // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
+            }
+
+                // DOM elements
+
+
+        // // Default onload page state
+        // window.addEventListener("load", (event) => {
+        //     loadImageSamples()
+        // });
+
+        function parseData() {
+            let firstName = document.getElementById('user-info-name').value.trim();
+            let lastName = document.getElementById('user-info-lastname').value.trim();
+            let age = document.getElementById('user-info-age').value.trim();
+            let eyesColor = document.getElementById('user-info-eye-colour').value.trim();
+
+            let nameSize = firstName.length + lastName.length;
+            let numberOfLines = ((nameSize * age)%10) + 5;
+            let endColor = findEndColor(nameSize * age);
+            let startColor = findStartColor(eyesColor)
+            console.log(`${firstName} ${lastName} ${age} ${eyesColor}`)
+            
+            let datas = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
+            
+            postData('http://localhost:8080',datas)
+                .then(data => {
+                    console.log(data); // JSON data parsed by `data.json()` call
+                });
+
+            // fetch('http://localhost:8080 -H \"Content-Type: application/json\" \ -X POST --data \'{\"foo\":\"bar\"}\'');
+        //     curl localhost:8080/ \
+        //    -H "Content-Type: application/json" \
+        //    -X POST --data '{"numberOfLines":"8", "startColor":"0.5", "endColor":"0.1554"}'
+
+        }
+        
+
     </script>
 </body>
 

@@ -281,12 +281,18 @@ main {
 }
 
 .genft-examples {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     height: auto;
-    border: 5px dotted white;
+    border: 10px  #fe5803;
+    border-style: groove;
     padding: 4px;
     margin: 4px;
-}
+    background: rgb(254,88,3);
+    background: linear-gradient(137deg, rgba(254,88,3,1) 0%, rgba(130,45,2,1) 30%, rgba(0,0,0,1) 100%);}
 
 .even {
     justify-content: flex-start;
@@ -301,6 +307,11 @@ main {
     width: 100%;
     height: auto;
     padding: 1rem;
+}
+
+.image-examples:hover {
+    transition: 0.5s;
+    transform: scale(1.15);
 }
 
 #how-it-works {
@@ -662,9 +673,30 @@ output {
     box-shadow: 0 0 20px #700a97;
 }
 
-#generated-img {
+#generated-img-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
     min-height: 70%;
     width: 70%;
+    border: 10px  #1111c8;
+    border-style: groove;
+    padding: 2rem;
+    margin: 4px;
+    background: transparent;
+    background: linear-gradient(137deg, #700a97 0%, rgba(10,10,114,1) 5%, rgba(0,0,0,1) 10%);
+}
+
+#generated-img {
+    width: 100%;
+    height: 100%;
+}
+
+#generated-img:hover {
+    transition: 1s;
+    transform: scale(1.05);
 }
 
 #generator-title {
@@ -672,3 +704,4 @@ output {
     margin: 1rem;
     font-weight: bold;
 }
+
