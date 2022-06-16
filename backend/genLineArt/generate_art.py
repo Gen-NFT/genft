@@ -1,11 +1,13 @@
 from curses import start_color
+from telnetlib import DO
+from tokenize import Double
 from PIL import Image, ImageDraw, ImageChops
 import random
 import colorsys
 import sys
 
-def generate_random_color():
-    h = random.random()
+def generate_random_color(index: float):
+    h = index
     s = 1
     v = 1
     float_rgb = colorsys.hsv_to_rgb(h,s,v)
@@ -21,12 +23,12 @@ def color_interpolate(start_color, end_color, factor: float):
 
     return tuple(new_color_rgb)
 
-def generate_art():
+def generate_art(numberOfLines, startColor: float, endColor: int):
     image_size_px = 1500
     padding_px = 120
     image_bg_color = (0,0,0)
-    start_color = generate_random_color()
-    end_color = generate_random_color()
+    start_color = generate_random_color(startColor)
+    end_color = generate_random_color(endColor)
 
     image = Image.new(
         "RGB", 
@@ -38,7 +40,7 @@ def generate_art():
     points = []
 
     # Generate The points
-    for _ in range(15):
+    for _ in range(numberOfLines):
         random_point= (
             random.randint(padding_px, image_size_px - padding_px),
             random.randint(padding_px, image_size_px - padding_px))
@@ -82,4 +84,4 @@ def generate_art():
         overlay_draw.line(line_xy, fill= line_color, width=thickness)
         image = ImageChops.add(image, overlay_image)
 
-    image.save("test.png")
+    image.save("test.jpeg")

@@ -1,27 +1,41 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
-import time
-
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from sys import argv
+import json
+from tokenize import Double 
 from generate_art import *
 
-hostName = "localhost"
-serverPort = 8080
+BIND_HOST = 'localhost'
+PORT = 8080
 
-class MyServer(BaseHTTPRequestHandler):
-    def do_GET(self):
+def produce_art(content):
+    content = content.decode('utf-8')
+    contentAsJson = json.loads(content)
+    numberOfLines = int(contentAsJson["numberOfLines"])
+    startColor = float(contentAsJson["startColor"])
+    endColor = float(contentAsJson["endColor"])
+
+    generate_art(numberOfLines, startColor, endColor)
+
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        content_length = int(self.headers.get('content-length', 0))
+        body = self.rfile.read(content_length)
+
+        self.write_response(body)
+        produce_art(body)
+
+    def write_response(self, content):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
         self.end_headers()
-        generate_art()
+        self.wfile.write(content)
+        print(self.headers)
 
+if len(argv) > 1:
+    arg = argv[1].split(':')
+    BIND_HOST = arg[0]
+    PORT = int(arg[1])
 
-if __name__ == "__main__":        
-    webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started http://%s:%s" % (hostName, serverPort))
+print(f'Listening on http://{BIND_HOST}:{PORT}\n')
 
-    try:
-        webServer.serve_forever()
-    except KeyboardInterrupt:
-        pass
-
-    webServer.server_close()
-    print("Server stopped.")
+httpd = HTTPServer((BIND_HOST, PORT), SimpleHTTPRequestHandler)
+httpd.serve_forever()
