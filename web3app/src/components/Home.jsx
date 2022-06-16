@@ -60,8 +60,9 @@ function NFTImage({ tokenId, getCount }) {
   const mintToken = async () => {
     const connection = contract.connect(signer);
     const addr = connection.address;
+    const price = await contract.nftPrice();
     const result = await contract.payToMint(addr, metadataURI, {
-      value: ethers.utils.parseEther('120'),
+      value: price,
     });
 
     await result.wait();

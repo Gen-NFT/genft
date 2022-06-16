@@ -9,6 +9,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract GeNFT is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
+    uint public nftPrice = 1.5 ether;
     Counters.Counter private _tokenIdCounter;
 
     constructor() ERC721("GeNFT", "GNFT") {}
