@@ -16,6 +16,7 @@ contract GeNFT is ERC721, ERC721URIStorage, Ownable {
         return nftPrice;
     }
 
+
     constructor() ERC721("GeNFT", "GNFT") {}
 
     function _baseURI() internal pure override returns (string memory) {
@@ -59,7 +60,9 @@ contract GeNFT is ERC721, ERC721URIStorage, Ownable {
         string memory metadataURI
     ) public payable returns (uint256) {
         require(existingURIs[metadataURI] != 1, 'NFT already minted!');
+
         require (msg.value >= nftPrice, 'Need to pay up! Minimum price is 0.05eth');
+
 
         uint256 newItemId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
