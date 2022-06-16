@@ -19,6 +19,7 @@ def produce_art(content):
     generate_art(numberOfLines, startColor, endColor)
     CID = pinata_upload("./generatedArts")
     print(CID)
+    return CID
 # def pin_ti_Pinata(path string):
 
 
