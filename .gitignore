@@ -1,4 +1,9 @@
 .direnv/
+.env
+
+node_modules/
+
+generatedArts/
 
 best_images/
 __pycache__/

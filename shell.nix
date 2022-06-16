@@ -4,6 +4,7 @@ let
   python-with-my-packages = my-python.withPackages (p: with p; [
     pip
     pillow
+    requests
   ]);
 in
 pkgs.mkShell {
