@@ -23,6 +23,7 @@ def produce_art(content):
 # def pin_ti_Pinata(path string):
 
 
+
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(200, "ok")
@@ -35,7 +36,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         content_length = int(self.headers.get('content-length', 0))
         body = self.rfile.read(content_length)
         CID = produce_art(body)
-        
+        result, tempfile = js2py.run_file("frontend/scripts/mint-nft.js");
+
+        result= tempfile.sayHello("Stack Vidhya Reader");
+
+        print(result);
         responseBody = { "CID" : CID }
         # self.wfile.write(json.dumps(responseBody))
         self.write_response(json.dumps(responseBody).encode("utf-8"))
