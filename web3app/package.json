@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "node": "hardhat node",
     "compile:contracts": "hardhat compile",
-    "deploy:contracts": "hardhat run scripts/geNFT-deploy.js --network localhost"
+    "deploy:hardhat": "hardhat run scripts/geNFT-deploy.js --network localhost",
+    "deploy:ropsten": "hardhat run scripts/geNFT-deploy.js --network ropsten"
+
 
   },
   "dependencies": {

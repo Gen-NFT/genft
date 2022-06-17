@@ -89,7 +89,7 @@
                         <button class="generation-actions" id="generate-img-btn" onclick="connect()">Connect</button>
                         <button class="generation-actions" id="generate-img-btn" onclick="parseData()">Generate</button>
 
-                        <!-- <button class="generation-actions" id="generate-img-btn">Download</button> -->
+                        <button class="generation-actions" id="generate-img-btn" onclick="show()"">Download</button>
                     </div>
                 </div>
             </div>
@@ -176,8 +176,7 @@
             
             let info = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
             
-            window.walletState.mintToken('QmUcbDAjNSFjTkNSbcHAV1Wd5jr72d6Da2DmLf4rG7kB6Q')
-            window.walletState.setImgUri(1, 'generated-img')   
+            window.walletState.mintToken('Qmc5ftckvf3D5efHV2Lm6Lix1ZpeETZvpqDsw2A9soN3Ms')
 
             // postData('http://localhost:8080',info)
             //     .then(data => {
@@ -190,6 +189,10 @@
 
         function connect(){
             window.walletState.connectWallet()
+        }
+
+        function show() {
+            window.walletState.setImgUri(0, 'generated-img')   
         }
 
         
