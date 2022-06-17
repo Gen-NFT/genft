@@ -7,7 +7,7 @@ from pin_to_pinata import *
 
 
 BIND_HOST = 'localhost'
-PORT = 8080
+PORT = 8082
 
 def produce_art(content):
     content = content.decode('utf-8')
@@ -28,19 +28,17 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(200, "ok")
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS, POST, DELETE')
         self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Credentials", "true")
         self.end_headers()
+
     def do_POST(self):
         content_length = int(self.headers.get('content-length', 0))
         body = self.rfile.read(content_length)
         CID = produce_art(body)
-        result, tempfile = js2py.run_file("frontend/scripts/mint-nft.js");
 
-        result= tempfile.sayHello("Stack Vidhya Reader");
-
-        print(result);
         responseBody = { "CID" : CID }
         # self.wfile.write(json.dumps(responseBody))
         self.write_response(json.dumps(responseBody).encode("utf-8"))

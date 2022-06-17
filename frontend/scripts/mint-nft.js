@@ -516,7 +516,7 @@ const state = {
   async setImgUri(tokenId, imgId) {
     const uri = await state.contract.tokenURI(tokenId);
     const ipfsCID = uri.slice(7); // skip 'ipfs://'
-    const imageURI = `https://gateway.pinata.cloud/ipfs/Qmc5ftckvf3D5efHV2Lm6Lix1ZpeETZvpqDsw2A9soN3Ms`;
+    const imageURI = `https://gateway.pinata.cloud/ipfs/${ipfsCID}/genLineArt.jpeg`;
     const img = document.getElementById(imgId);
     img.src = imageURI;
   },

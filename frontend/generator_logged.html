@@ -147,8 +147,9 @@
                     return 0.666;
             }
         }
-        async function postData(url = '', data = {}) {
+        async function postData(url = '', data = {}, event) {
         // Default options are marked with *
+            event.preventDefault();
             const response = await fetch(url, {
                 method: 'POST', // *GET, POST, PUT, DELETE, etc.
                 headers: {
@@ -176,23 +177,26 @@
             
             let info = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
             
-            window.walletState.mintToken('Qmc5ftckvf3D5efHV2Lm6Lix1ZpeETZvpqDsw2A9soN3Ms')
+            window.walletState.mintToken('QmSS4rBsS1k1U7eqhjPTgUn3JqHSacPBrf6PCX9qisJUXA')
 
-            // postData('http://localhost:8080',info)
-            //     .then(data => {
-            //         console.log(data);
-            //         debugger; // JSON data parsed by `data.json()` call
-            //     });
+            postData('http://localhost:8082',info, event)
+                .then(data => {
+                    console.log(data);
+                });
+            // window.onbeforeunload = function() {
+            //     return "Do not leave!";
+            // }
 
             // location.href = "./profile_logged.html";
         }
 
         function connect(){
             window.walletState.connectWallet()
+            
         }
 
         function show() {
-            window.walletState.setImgUri(0, 'generated-img')   
+            window.walletState.setImgUri(3, 'generated-img')   
         }
 
         

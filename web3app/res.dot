@@ -1,0 +1,55 @@
+
+digraph UmlClassDiagram {
+rankdir=BT
+color=black
+arrowhead=open
+node [shape=record, style=filled, fillcolor=gray95]
+subgraph  graph_0 {
+label="contracts"
+0 [label="{GeNFT| Private:\l\ \ \ _tokenIdCounter: Counters.Counter\lPublic:\l\ \ \ nftPrice: uint\l\ \ \ existingURIs: mapping\(string=\>uint8\)\l| Internal:\l\ \ \ \ _baseURI(): string\l\ \ \ \ _burn(tokenId: uint256)\lPublic:\l\ \ \ \ \<\<payable\>\> payToMint(recipient: address, metadataURI: string): uint256\l\ \ \ \ getPrice(): uint\l\ \ \ \ constructor()\l\ \ \ \ safeMint(to: address, uri: string)\l\ \ \ \ tokenURI(tokenId: uint256): string\l\ \ \ \ isContentOwned(uri: string): bool\l\ \ \ \ count(): uint256\l}"]
+}
+subgraph  graph_1 {
+label="node_modules/@openzeppelin/contracts/access"
+6 [label="{\<\<Abstract\>\>\nOwnable| Private:\l\ \ \ _owner: address\l| Internal:\l\ \ \ \ _transferOwnership(newOwner: address)\lPublic:\l\ \ \ \ \<\<event\>\> OwnershipTransferred(previousOwner: address, newOwner: address)\l\ \ \ \ \<\<modifier\>\> onlyOwner()\l\ \ \ \ constructor()\l\ \ \ \ owner(): address\l\ \ \ \ renounceOwnership()\l\ \ \ \ transferOwnership(newOwner: address)\l}"]
+}
+subgraph  graph_2 {
+label="node_modules/@openzeppelin/contracts/token/ERC721"
+77 [label="{ERC721| Private:\l\ \ \ _name: string\l\ \ \ _symbol: string\l\ \ \ _owners: mapping\(uint256=\>address\)\l\ \ \ _balances: mapping\(address=\>uint256\)\l\ \ \ _tokenApprovals: mapping\(uint256=\>address\)\l\ \ \ _operatorApprovals: mapping\(address=\>mapping\(address=\>bool\)\)\l| Private:\l\ \ \ \ _checkOnERC721Received(from: address, to: address, tokenId: uint256, _data: bytes): bool\lInternal:\l\ \ \ \ _baseURI(): string\l\ \ \ \ _safeTransfer(from: address, to: address, tokenId: uint256, _data: bytes)\l\ \ \ \ _exists(tokenId: uint256): bool\l\ \ \ \ _isApprovedOrOwner(spender: address, tokenId: uint256): bool\l\ \ \ \ _safeMint(to: address, tokenId: uint256)\l\ \ \ \ _safeMint(to: address, tokenId: uint256, _data: bytes)\l\ \ \ \ _mint(to: address, tokenId: uint256)\l\ \ \ \ _burn(tokenId: uint256)\l\ \ \ \ _transfer(from: address, to: address, tokenId: uint256)\l\ \ \ \ _approve(to: address, tokenId: uint256)\l\ \ \ \ _setApprovalForAll(owner: address, operator: address, approved: bool)\l\ \ \ \ _beforeTokenTransfer(from: address, to: address, tokenId: uint256)\l\ \ \ \ _afterTokenTransfer(from: address, to: address, tokenId: uint256)\lPublic:\l\ \ \ \ constructor(name_: string, symbol_: string)\l\ \ \ \ supportsInterface(interfaceId: bytes4): bool\l\ \ \ \ balanceOf(owner: address): uint256\l\ \ \ \ ownerOf(tokenId: uint256): address\l\ \ \ \ name(): string\l\ \ \ \ symbol(): string\l\ \ \ \ tokenURI(tokenId: uint256): string\l\ \ \ \ approve(to: address, tokenId: uint256)\l\ \ \ \ getApproved(tokenId: uint256): address\l\ \ \ \ setApprovalForAll(operator: address, approved: bool)\l\ \ \ \ isApprovedForAll(owner: address, operator: address): bool\l\ \ \ \ transferFrom(from: address, to: address, tokenId: uint256)\l\ \ \ \ safeTransferFrom(from: address, to: address, tokenId: uint256)\l\ \ \ \ safeTransferFrom(from: address, to: address, tokenId: uint256, _data: bytes)\l}"]
+78 [label="{\<\<Interface\>\>\nIERC721| | External:\l\ \ \ \  balanceOf(owner: address): (balance: uint256)\l\ \ \ \  ownerOf(tokenId: uint256): (owner: address)\l\ \ \ \  safeTransferFrom(from: address, to: address, tokenId: uint256, data: bytes)\l\ \ \ \  safeTransferFrom(from: address, to: address, tokenId: uint256)\l\ \ \ \  transferFrom(from: address, to: address, tokenId: uint256)\l\ \ \ \  approve(to: address, tokenId: uint256)\l\ \ \ \  setApprovalForAll(operator: address, _approved: bool)\l\ \ \ \  getApproved(tokenId: uint256): (operator: address)\l\ \ \ \  isApprovedForAll(owner: address, operator: address): bool\lPublic:\l\ \ \ \ \<\<event\>\> Transfer(from: address, to: address, tokenId: uint256)\l\ \ \ \ \<\<event\>\> Approval(owner: address, approved: address, tokenId: uint256)\l\ \ \ \ \<\<event\>\> ApprovalForAll(owner: address, operator: address, approved: bool)\l}"]
+}
+subgraph  graph_3 {
+label="node_modules/@openzeppelin/contracts/token/ERC721/extensions"
+144 [label="{\<\<Abstract\>\>\nERC721URIStorage| Private:\l\ \ \ _tokenURIs: mapping\(uint256=\>string\)\l| Internal:\l\ \ \ \ _setTokenURI(tokenId: uint256, _tokenURI: string)\l\ \ \ \ _burn(tokenId: uint256)\lPublic:\l\ \ \ \ tokenURI(tokenId: uint256): string\l}"]
+146 [label="{\<\<Interface\>\>\nIERC721Metadata| | External:\l\ \ \ \  name(): string\l\ \ \ \  symbol(): string\l\ \ \ \  tokenURI(tokenId: uint256): string\l}"]
+}
+subgraph  graph_4 {
+label="node_modules/@openzeppelin/contracts/utils"
+29 [label="{\<\<Library\>\>\nAddress| | Internal:\l\ \ \ \ isContract(account: address): bool\l\ \ \ \ sendValue(recipient: address, amount: uint256)\l\ \ \ \ functionCall(target: address, data: bytes): bytes\l\ \ \ \ functionCall(target: address, data: bytes, errorMessage: string): bytes\l\ \ \ \ functionCallWithValue(target: address, data: bytes, value: uint256): bytes\l\ \ \ \ functionCallWithValue(target: address, data: bytes, value: uint256, errorMessage: string): bytes\l\ \ \ \ functionStaticCall(target: address, data: bytes): bytes\l\ \ \ \ functionStaticCall(target: address, data: bytes, errorMessage: string): bytes\l\ \ \ \ functionDelegateCall(target: address, data: bytes): bytes\l\ \ \ \ functionDelegateCall(target: address, data: bytes, errorMessage: string): bytes\l\ \ \ \ verifyCallResult(success: bool, returndata: bytes, errorMessage: string): bytes\l}"]
+33 [label="{\<\<Abstract\>\>\nContext| | Internal:\l\ \ \ \ _msgSender(): address\l\ \ \ \ _msgData(): bytes\l}"]
+34 [label="{\<\<Library\>\>\nCounters| | Internal:\l\ \ \ \ current(counter: Counter): uint256\l\ \ \ \ increment(counter: Counter)\l\ \ \ \ decrement(counter: Counter)\l\ \ \ \ reset(counter: Counter)\l}"]
+"34struct0" [label="{\<\<struct\>\>\nCounter|_value: uint256\l}"]
+"34struct0" -> 34 [arrowhead=diamond, weight=3]
+38 [label="{\<\<Library\>\>\nStrings| Private:\l\ \ \ _HEX_SYMBOLS: bytes16\l| Internal:\l\ \ \ \ toString(value: uint256): string\l\ \ \ \ toHexString(value: uint256): string\l\ \ \ \ toHexString(value: uint256, length: uint256): string\l}"]
+}
+subgraph  graph_5 {
+label="node_modules/@openzeppelin/contracts/utils/introspection"
+92 [label="{\<\<Abstract\>\>\nERC165| | Public:\l\ \ \ \ supportsInterface(interfaceId: bytes4): bool\l}"]
+96 [label="{\<\<Interface\>\>\nIERC165| | External:\l\ \ \ \  supportsInterface(interfaceId: bytes4): bool\l}"]
+}
+0 -> 77 [arrowhead=empty, arrowsize=3, weight=4, ]
+0 -> 144 [arrowhead=empty, arrowsize=3, weight=3, ]
+0 -> 6 [arrowhead=empty, arrowsize=3, weight=3, ]
+0 -> 34 []
+6 -> 33 [arrowhead=empty, arrowsize=3, weight=3, ]
+77 -> 33 [arrowhead=empty, arrowsize=3, weight=3, ]
+77 -> 92 [arrowhead=empty, arrowsize=3, weight=3, ]
+77 -> 78 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+77 -> 146 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+77 -> 29 [style=dashed, ]
+77 -> 38 [style=dashed, ]
+77 -> 77 [style=dashed, ]
+78 -> 96 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+144 -> 77 [arrowhead=empty, arrowsize=3, weight=4, ]
+146 -> 78 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+92 -> 96 [style=dashed, arrowhead=empty, arrowsize=3, weight=3, ]
+}
