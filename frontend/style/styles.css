@@ -796,3 +796,7 @@ output {
 .nft-image-link:hover {
     color:#fe5803;
 }
+
+.hidden {
+    visibility: hidden;
+}

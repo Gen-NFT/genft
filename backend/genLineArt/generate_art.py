@@ -28,7 +28,7 @@ def generate_art(numberOfLines, startColor: float, endColor: int):
     padding_px = 120
     image_bg_color = (0,0,0)
     start_color = generate_random_color(startColor)
-    end_color = generate_random_color(endColor)
+    end_color = generate_random_color(random.random())
 
     image = Image.new(
         "RGB", 

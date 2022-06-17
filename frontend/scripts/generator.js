@@ -59,6 +59,9 @@ async function getUserByEmail(email) {
 
 // DOM elements
 const profileLinkElement = document.getElementById('greetings');
+const connectImageButtonElement = document.getElementById('connect-img-btn');
+const generateImageButtonElement = document.getElementById('generate-img-btn');
+const showImageButtonElement = document.getElementById('show-img-btn');
 
 // Session storage
 var sessionStorage = window.sessionStorage;
@@ -73,7 +76,6 @@ function greetings() {
 
 // Default onload page state
 window.addEventListener("load", (event) => {
-    // if (currentUserEmailAddress != null) {
-    //     greetings()  
-    // } 
+    generateImageButtonElement.classList.add('hidden');
+    showImageButtonElement.classList.add('hidden');
 });

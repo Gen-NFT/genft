@@ -486,6 +486,11 @@ const state = {
   contract: null,
 
   async connectWallet() {
+    // DOM elements
+    const connectImageButtonElement = document.getElementById('connect-img-btn');
+    const generateImageButtonElement = document.getElementById('generate-img-btn');
+    connectImageButtonElement.classList.add('hidden')
+    generateImageButtonElement.classList.remove('hidden')
     await state.provider.send("eth_requestAccounts", []);
     state.signer = state.provider.getSigner();
     state.contract = new ethers.Contract(

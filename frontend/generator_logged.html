@@ -86,10 +86,10 @@
                         <div id="generated-img-wrapper">
                             <img id="generated-img" src="./assets/question_image.png" alt="generated_image"/>
                         </div>
-                        <button class="generation-actions" id="generate-img-btn" onclick="connect()">Connect</button>
-                        <button class="generation-actions" id="generate-img-btn" onclick="parseData()">Generate</button>
+                        <button class="generation-actions" id="connect-img-btn" onclick="connect()">Connect</button>
+                        <button class="generation-actions hidden" id="generate-img-btn" onclick="parseData()">Generate</button>
 
-                        <button class="generation-actions" id="generate-img-btn" onclick="show()"">Download</button>
+                        <button class="generation-actions hidden" id="show-img-btn" onclick="show()">Show</button>
                     </div>
                 </div>
             </div>
@@ -164,6 +164,10 @@
                 // DOM elements
 
         function parseData() {
+            const generateImageButtonElement = document.getElementById('generate-img-btn');
+            const showImageButtonElement = document.getElementById('show-img-btn');
+            generateImageButtonElement.classList.add('hidden')
+
             let firstName = document.getElementById('user-info-name').value.trim();
             let lastName = document.getElementById('user-info-lastname').value.trim();
             let age = document.getElementById('user-info-age').value.trim();
@@ -177,15 +181,13 @@
             
             let info = {"numberOfLines":numberOfLines, "startColor":startColor, "endColor":endColor};
             
-            window.walletState.mintToken('QmSS4rBsS1k1U7eqhjPTgUn3JqHSacPBrf6PCX9qisJUXA')
+            window.walletState.mintToken('QmT63uvvs6zgNUjUVG6jWQeknuKkaas1z3Tj8myTicE8Kc')
+            showImageButtonElement.classList.remove('hidden')
 
-            postData('http://localhost:8082',info, event)
-                .then(data => {
-                    console.log(data);
-                });
-            // window.onbeforeunload = function() {
-            //     return "Do not leave!";
-            // }
+            // postData('http://localhost:8082',info, event)
+            //     .then(data => {
+            //         console.log(data);
+            //     });
 
             // location.href = "./profile_logged.html";
         }
@@ -196,7 +198,7 @@
         }
 
         function show() {
-            window.walletState.setImgUri(3, 'generated-img')   
+            window.walletState.setImgUri(13, 'generated-img')   
         }
 
         
